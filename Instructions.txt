@@ -1,0 +1,192 @@
+
+ 
+
+
+SESSION: 2017/18								DIET 1
+
+Module Title: 	Programming 2
+
+Module Code:	M2I324178-17-B 
+Level: 2
+
+Module Leader: Dr Richard Holden
+
+Hand-out time (GMT): 
+9am, Thursday 15th March, 2018 (GMT)
+
+Hand-in deadline (GMT):
+5pm, Friday 13th April 2018 (GMT)
+
+ 
+
+Contents
+Programming 2 Coursework Specification (2017-2018)	4
+The scenario	4
+Model Class Diagram	4
+Requirements	4
+Architecture	4
+Development Approach	4
+1.	Load swipes from a file and list in id order	4
+2.	Add new swipe	5
+3.	List swipes for a specified card ID in order of swipe date-time	5
+4.	List swipe statistics for a specified card id	5
+5.	Persist swipes collection to a file	6
+Submission: requirements and procedure (read carefully!)	6
+Marking Scheme	6
+Starter Project Test Run	7
+Sample Delimited Text File <swipes.txt>	8
+Appendix 1	8
+Appendix 2	10
+
+
+ 
+Programming 2 Coursework Specification (2017-2018)
+
+The scenario
+A University Attendance Monitoring App is required which will allow reports to be generated from data captured by 
+scanners. Staff and students are expected to swipe their id cards when entering a room on the university campus. 
+Visitors are issued with temporary cards to swipe.
+Swipes are stored in a single file; either delimited text format or object file. 
+Swipe data is Swipe Id, Card Id, Room, and, Date-Time of Swipe. Temporary card swipes will also store the visitor name 
+and company.
+
+*************************************************************************************************************************
+
+Model Class Diagram
+
+See Appendix 1
+*************************************************************************************************************************
+Requirements
+
+A starter project is supplied for a console menu-driven application. The starter project contains a controller class with stubs for methods implementing the required functionality listed below: 
+1.	Load swipes information from a specified file into a swipes collection implemented using a repository
+2.	Add a swipe manually where room is set to “General” and date-time is set to the current time
+3.	List all swipes in reverse order of date-time i.e. the most recent first
+4.	List number of swipes and last date-time for a specified card
+5.	Persist the collection to a specified file
+The starter project contains: 
+•	starter model, repository and controller classes, which require completing. 
+•	sample delimited text file is additionally supplied.
+
+
+Architecture
+The architectural pattern in the labs is to be used, with classes as detailed in Appendix 2.
+Development Approach
+Drawing on the techniques you have learned in the labs, you will follow an incremental development approach, with the following 5 increments:
+1.	Load swipes from a file and list in id order
+This fulfils Requirement 1. To complete this increment you should:
+a.	Complete the Swipe, and VisitorSwipe classes with required fields and methods as depicted in the class diagram in Appendix 1.
+b.	Decide on which type of collection you want the repository to define and make the necessary adjustments to the Repository class and RepositoryInterface.
+c.	Partially complete the AttendanceController class by completing the constructor method which creates a new Repository object from a file if specified by the user
+d.	Partially complete the AttendanceController class to implement the listSwipes() method
+e.	Create a DAOImpl class to realize the DAOInterface using either text file or object file format
+f.	Modify the Repository class to use the DAOImpl class to load swipes from a specified file
+Document the results of your testing using screen snippets copied into a Word document. Take a copy of the AttendanceController class and name it as AttendanceController_Increment1.java.
+2.	Add new swipe
+This fulfils Requirement 2. To complete this increment you should:
+a.	Fully implement the addSwipe() method in the AttendanceController class; this should ask the user for required details, create a new Swipe or VisitorSwipe object and add it to the Repository object.
+Document the results of your testing using screen snippets copied into a Word document. Take a copy of the AttendanceController class and name it as AttendanceController_Increment2.java.
+3.	List swipes for a specified card ID in order of swipe date-time
+This fulfils Requirement 3. To complete this increment you should:
+a.	Complete the  listSwipesByCardIdOrderedByDateTime() method in the AttendanceController class.
+b.	Ensure the Swipe class defines a method to compare swipes on the swipeDateTime attribute.
+Document the results of your testing using screen snippets copied into a Word document. Take a copy of the AttendanceController class and name it as AttendanceController_Increment3.java.
+4.	List swipe statistics for a specified card id
+This fulfils Requirement 4. To complete this increment, you should:
+a.	Complete the listSwipeStatistics() method in the AttendanceController class.
+b.	You should list the number of swipes and the last swipe date-time for a specified room.
+Document the results of your testing using screen snippets copied into a Word document. Take a copy of the AttendanceController class and name it as AttendanceController_Increment4.java.
+5.	Persist swipes collection to a file
+This fulfils Requirement 5. To complete this increment you should:
+a.	Implement the store() method of the DAOImpl class if you have not already done so.
+b.	Implement any necessary toString(DELIMITER) methods.
+Document the results of your testing using screen snippets copied into a Word document.
+Narrative: students should write a narrative summary (in a word document) of the (attempted) implementation of each of the 5 increments. The narrative should explain the methods and objects used, and provide screen snippets of console output – you can use this section to explain any unresolved problems and how you have attempted to fix them.
+
+Submission: requirements and procedure (read carefully!)
+Please read, and follow, the instructions carefully:
+1.	Create a folder named as follows: <studentname_studentsurname>
+2.	In Netbeans, rename the project you have been working in (AttendanceAppStarter) project to AttendanceAppStudentnameStudentsurname.
+a.	Right-click on project (AttendanceAppStarter)
+b.	Click on Rename…
+c.	Project name field should be set to AttendanceAppStudentnameStudentsurname, where Studentname and Studentsurname is *your* name and surname, respectively.
+d.	Ensure that ‘Also Rename Project Folder’ is ticked.
+e.	Click ‘Rename’ button.
+3.	Copy your NetBeans project folder in to the <studentname_studentsurname> folder
+4.	Narrative document:
+a.	Ensure the cover page is <cover-pager.docx> is copied to the docuemnts and that you details are filled-in in the appropriate table 
+b.	Copy the document to the <studentname_studentsurname> folder.
+5.	Compress <studentname_studentsurname> folder to < studentname_studentsurname.zip> and upload the zip file to GCU Learn (a GCU Learn ‘announcement’ will be made as to where you should upload this to).
+
+Marking Scheme
+Requirement	Marks
+A)	Narrative document	6
+B)	Swipe class	5
+C)	VisitorSwipe class	3
+D)	Repository class	4
+E)	DAOImpl class	5
+F)	AttendanceController class (Increment1)	7
+G)	AttendanceController class (Increment2)	5
+H)	AttendanceController class (Increment3)	5
+I)	AttendanceController class (Increment4)	5
+J)	Use of nested classes (inner/local/anonymous)	5
+       Use of abstract & generic classes	
+       Use of Enums	
+       Use of lambda expressions/aggregate operations	
+Total	50
+Starter Project Test Run 
+run:
+Attendance App
+==============
+
+
+A. Add Swipe	B. List Swipes	C. List Swipes In Date Time Order	D. List Swipes Which Match Card Id	Q. Quit
+Enter choice: 
+A
+Add Swipe
+=========
+
+A. Add Swipe	B. List Swipes	C. List Swipes In Date Time Order	D. List Swipes Which Match Card Id	Q. Quit
+Enter choice: 
+B
+Swipes
+======
+
+A. Add Swipe	B. List Swipes	C. List Swipes In Date Time Order	D. List Swipes Which Match Card Id	Q. Quit
+Enter choice: 
+C
+Swipes By Card Id
+=================
+
+A. Add Swipe	B. List Swipes	C. List Swipes In Date Time Order	D. List Swipes Which Match Card Id	Q. Quit
+Enter choice: 
+D
+Swipe Statistics for room
+=========================
+
+A. Add Swipe	B. List Swipes	C. List Swipes In Date Time Order	D. List Swipes Which Match Card Id	Q. Quit
+Enter choice: 
+E
+Character out of range: please re-enter: 
+Enter choice: 
+Q
+Thank you for using Attendance App. Good bye.
+
+BUILD SUCCESSFUL (total time: 1 minute 16 seconds)
+
+Sample Delimited Text File <swipes.txt>
+
+1,"Card001","M606","2017/08/01 15:18:00"
+2,"Card002","M606","2017/08/01 15:18:01","Andres Iniesta","FCB"
+3,"Card001","A412","2017/08/01 16:00:00"
+
+
+
+
+
+Appendix 1
+  
+
+Appendix 2
+ 
+
