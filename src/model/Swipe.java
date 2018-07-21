@@ -1,3 +1,6 @@
+/**
+ * This package models the properties of the swipes
+ */
 package model;
 
 import java.text.DateFormat;

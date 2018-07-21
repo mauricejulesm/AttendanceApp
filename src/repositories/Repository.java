@@ -20,9 +20,9 @@ public class Repository<T> implements RepositoryInterface<T>{
         this.items = new LinkedList<>();       
     }
     
-    public Repository(List<Swipe> items) {        
-        this.items = items;
-    }
+//    public Repository(List<Swipe> items) {        
+//        this.items = items;
+//    }
     
     public Repository(String filename) {
         this();
